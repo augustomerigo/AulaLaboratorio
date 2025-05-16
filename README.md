@@ -1,3 +1,4 @@
+```c
 # AulaLaboratorio
 #include <stdio.h>
 #include <string.h>
