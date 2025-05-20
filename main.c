@@ -47,7 +47,14 @@ void listar_produtos() {
         printf("%d. %s - %.2f\n", i + 1, produtos[i], precos[i]);
     }
 }
-
+void remover_clientes(){
+    char nome[50];
+    printf("Digite o nome do cliente a ser removido: ");
+    scanf("%s", nome);
+    strcpy(clientes[total_clientes], nome);
+    total_clientes--;
+    printf("Cliente %s removido com sucesso!\n", nome);
+}
 int main() {
     int opcao = -1;
     do {
@@ -57,6 +64,7 @@ int main() {
         printf("3. Cadastrar Venda\n");
         printf("4. Listar Clientes\n");
         printf("5. Listar Produtos\n");
+        printf("6. Remover Cliente\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -70,6 +78,8 @@ int main() {
             listar_clientes();
         } else if (opcao == 5) {
             listar_produtos();
+        } else if (opcao == 6) {
+            remover_clientes();
         } else if (opcao != 0) {
             printf("Opcao invalida. Tente novamente.\n");
         }
