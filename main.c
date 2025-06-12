@@ -5,7 +5,8 @@ char clientes[50][50];
 int total_clientes = 0;
 
 char produtos[50][50];
-float precos[50];
+float precos[50];1
+
 int total_produtos = 0;
 
 void cadastrar_cliente() {
