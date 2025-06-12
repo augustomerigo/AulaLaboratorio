@@ -5,7 +5,7 @@ char clientes[50][50];
 int total_clientes = 0;
 
 char produtos[50][50];
-float precos[50];1
+float precos[50];
 
 int total_produtos = 0;
 
@@ -50,11 +50,23 @@ void listar_produtos() {
 }
 void remover_clientes(){
     char nome[50];
+    int encontrado = 0;
     printf("Digite o nome do cliente a ser removido: ");
     scanf("%s", nome);
-    strcpy(clientes[total_clientes], nome);
-    total_clientes--;
-    printf("Cliente %s removido com sucesso!\n", nome);
+    for (int i = 0; i < total_clientes; i++) {
+        if (strcmp(clientes[i], nome) == 0) {
+            for (int j = i; j < total_clientes - 1; j++) {
+                strcpy(clientes[j], clientes[j + 1]);
+            }
+            total_clientes--;
+            encontrado = 1;
+            printf("Cliente %s removido com sucesso!\n", nome);
+            break;
+        }
+    }
+    if (!encontrado) {
+        printf("Cliente %s nao encontrado!\n", nome);
+    }
 }
 int main() {
     int opcao = -1;
