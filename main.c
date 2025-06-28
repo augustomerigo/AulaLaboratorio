@@ -95,6 +95,7 @@ void remover_cliente() {
     for (int i = 0; i < total_clientes; i++) {
         if (clientes[i].id == id) {
             encontrado = 1;
+            // Move os clientes seguintes para "tapar o buraco"
             for (int j = i; j < total_clientes - 1; j++) {
                 clientes[j] = clientes[j + 1];
             }
