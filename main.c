@@ -150,6 +150,27 @@ void listar_vendas() {
         }
     }
 }
+// Função para remover um cliente pelo ID usando ponteiros
+void remover_cliente() {
+    int id, encontrado = 0;
+    printf("Digite o ID do cliente que deseja remover: ");
+    scanf("%d", &id);
+
+    for (int i = 0; i < total_clientes; i++) {
+        if (clientes[i].id == id) {
+            encontrado = 1;
+            for (int j = i; j < total_clientes - 1; j++) {
+                clientes[j] = clientes[j + 1];
+            }
+            total_clientes--;
+            printf("Cliente removido com sucesso!\n");
+            break;
+        }
+    }
+    if (!encontrado) {
+        printf("Cliente nao encontrado.\n");
+    }
+}
 
 // Função principal do programa: mostra o menu e chama as funções conforme a escolha do usuário
 int main() {
@@ -162,6 +183,7 @@ int main() {
         printf("4. Listar Produtos\n");
         printf("5. Cadastrar Venda\n");
         printf("6. Listar Vendas\n");
+        printf("7. Remover Cliente\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -178,6 +200,8 @@ int main() {
             cadastrar_venda();      // Chama a função para cadastrar venda
         } else if (opcao == 6) {
             listar_vendas();        // Chama a função para listar vendas
+        } else if (opcao == 7) {
+            remover_cliente();      // Chama a função para remover cliente
         } else if (opcao == 0) {
             printf("Saindo do programa...\n");
         } else {
