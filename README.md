@@ -12,7 +12,6 @@ O projeto consiste em um sistema simples de gerenciamento de clientes, produtos 
 - Cadastrar vendas (cliente, produto e quantidade)
 - Listar clientes
 - Listar produtos
-- Remover clientes
 
 A aplicação é interativa via terminal e foi desenvolvida para fins didáticos durante as aulas práticas.
 
